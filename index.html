@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🌱 Even Life OS</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    font-family:"Segoe UI","Microsoft YaHei",sans-serif;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:linear-gradient(135deg,#f6fff8,#eef7ff);
+    color:#333;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#777;
+}
+
+
+/* 卡片 */
+
+.card{
+    background:white;
+    border-radius:24px;
+    padding:28px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+
+.title{
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+
+/* 今日 */
+
+.todo{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.todo-item{
+    flex:1;
+    min-width:180px;
+    background:#f8faf8;
+    padding:18px;
+    border-radius:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.todo-item:hover{
+    transform:translateY(-5px);
+}
+
+
+input[type="checkbox"]{
+    width:20px;
+    height:20px;
+}
+
+
+/* 成长 */
+
+.growth{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.skill{
+    padding:25px;
+    border-radius:20px;
+    background:#fafafa;
+}
+
+
+.progress{
+    height:8px;
+    background:#eee;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+.bar{
+    height:100%;
+    border-radius:10px;
+}
+
+
+.korean{
+    width:35%;
+    background:#ff8fab;
+}
+
+.ai{
+    width:20%;
+    background:#7cc4ff;
+}
+
+
+/* 未来 */
+
+.future{
+    text-align:center;
+    padding:35px;
+}
+
+.future span{
+    font-size:40px;
+}
+
+.quote{
+    margin-top:20px;
+    color:#777;
+    font-size:18px;
+}
+
+
+footer{
+    text-align:center;
+    color:#999;
+    margin-top:40px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>🌱 Even Life OS</h1>
+
+<p class="subtitle">
+每天一点成长，慢慢成为想成为的人
+</p>
+
+</header>
+
+
+<!-- 今天 -->
+
+<div class="card">
+
+<div class="title">
+☀️ 今天
+</div>
+
+
+<div class="todo">
+
+
+<div class="todo-item">
+<input type="checkbox">
+<strong> 🧘 身体</strong>
+<p>运动 / 拉伸 / 好好休息</p>
+</div>
+
+
+<div class="todo-item">
+<input type="checkbox">
+<strong> 📚 学习</strong>
+<p>输入新知识</p>
+</div>
+
+
+<div class="todo-item">
+<input type="checkbox">
+<strong> ✨ 开心</strong>
+<p>做让自己快乐的事情</p>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<!-- 成长 -->
+
+<div class="card">
+
+<div class="title">
+🌱 正在成长
+</div>
+
+
+<div class="growth">
+
+
+<div class="skill">
+
+<h3>🇰🇷 韩语</h3>
+
+<p>
+从喜欢开始，慢慢靠近韩国文化
+</p>
+
+
+<div class="progress">
+<div class="bar korean"></div>
+</div>
+
+
+</div>
+
+
+
+<div class="skill">
+
+<h3>🤖 AI技能</h3>
+
+<p>
+学习AI工具，创造新的可能
+</p>
+
+
+<div class="progress">
+<div class="bar ai"></div>
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<!-- 未来 -->
+
+<div class="card future">
+
+
+<div class="title">
+🌈 未来
+</div>
+
+
+<span>🇯🇵</span>
+
+<h2>
+日本旅行 / 生活体验
+</h2>
+
+
+<span>
+✨
+</span>
+
+
+<h2>
+自由生活
+</h2>
+
+
+<p class="quote">
+拥有选择生活方式的能力
+</p>
+
+
+</div>
+
+
+
+<footer>
+
+🌱 Even Life OS © 2026
+
+</footer>
+
+
+</div>
+
+
+<script>
+
+const checks=document.querySelectorAll(
+'input[type="checkbox"]'
+);
+
+checks.forEach(item=>{
+
+item.addEventListener(
+'change',
+()=>{
+
+if(item.checked){
+
+item.parentElement.style.opacity="0.6";
+
+}else{
+
+item.parentElement.style.opacity="1";
+
+}
+
+})
+
+})
+
+</script>
+
+
+</body>
+
+</html>
