@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EVEN LIFE OS</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="manifest" href="manifest.json">
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<header class="hero">
+
+<div class="small">
+MY NEW CHAPTER ✦
+</div>
+
+<h1>
+EVEN'S<br>
+<span>LIFE OS</span>
+</h1>
+
+<p>
+Redesign my life 🌸
+</p>
+
+<div id="date"></div>
+
+</header>
+
+
+
+
+<section class="card">
+
+<h2>
+✨ Today's Energy
+</h2>
+
+
+<div class="energy">
+
+<button onclick="setMood('😊')">
+😊
+</button>
+
+<button onclick="setMood('🙂')">
+🙂
+</button>
+
+<button onclick="setMood('😞')">
+😞
+</button>
+
+</div>
+
+
+<p>
+今日状态：
+<span id="mood">
+-
+</span>
+</p>
+
+
+</section>
+
+
+
+
+
+
+<section class="card">
+
+<h2>
+🌿 Body Reset
+</h2>
+
+
+<div class="check">
+
+<label>
+<input type="checkbox" id="ice">
+🧊 不喝冰
+</label>
+
+</div>
+
+
+<div class="check">
+
+<label>
+<input type="checkbox" id="posture">
+🪑 不翘二郎腿
+</label>
+
+</div>
+
+
+<div class="check">
+
+<label>
+<input type="checkbox" id="stretch">
+🧘 拉伸5分钟
+</label>
+
+</div>
+
+
+<div class="check">
+
+<label>
+<input type="checkbox" id="walk">
+🚶 走路20-30分钟
+</label>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="card">
+
+<h2>
+🌙 Sleep Tracker
+</h2>
+
+
+<input id="sleep"
+placeholder="睡觉时间 例如 23:50">
+
+
+<input id="wake"
+placeholder="起床时间 例如 08:00">
+
+
+<div class="stars">
+
+睡眠质量
+
+<select id="quality">
+
+<option>⭐</option>
+<option>⭐⭐</option>
+<option>⭐⭐⭐</option>
+<option>⭐⭐⭐⭐</option>
+<option>⭐⭐⭐⭐⭐</option>
+
+</select>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="card">
+
+<h2>
+🇰🇷 Korean Journey
+</h2>
+
+
+<input id="koreanTime"
+placeholder="学习时间（分钟）">
+
+
+<textarea id="koreanNote"
+placeholder="今天学了什么？"></textarea>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="card">
+
+<h2>
+🤖 AI Journey
+</h2>
+
+
+<textarea id="aiNote"
+placeholder="
+今天AI学习：
+
+ChatGPT
+AI绘图
+AI视频
+作品记录
+"></textarea>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="card">
+
+<h2>
+📷 Inspiration Wall
+</h2>
+
+
+<textarea id="idea"
+placeholder="
+记录灵感：
+
+照片
+音乐
+旅行
+想法
+"></textarea>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="card">
+
+<h2>
+📝 Daily Note
+</h2>
+
+
+<textarea id="note"
+placeholder="
+今天：
+
+开心：
+消耗：
+想法：
+"></textarea>
+
+
+</section>
+
+
+
+
+
+
+
+<button class="save"
+onclick="saveData()">
+
+SAVE TODAY ✨
+
+</button>
+
+
+
+
+
+
+<section class="card history">
+
+<h2>
+📅 My Records
+</h2>
+
+
+<div id="records">
+
+暂无记录
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+</div>
+
+
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>
