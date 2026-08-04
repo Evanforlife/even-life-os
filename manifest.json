@@ -1,0 +1,16 @@
+{
+  "name": "EVEN LIFE OS",
+  "short_name": "EVEN",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff5f7",
+  "theme_color": "#111111",
+  "description": "My personal life operating system",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
