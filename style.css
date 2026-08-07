@@ -360,3 +360,228 @@ textarea{
 
 
 }
+/* =========================
+   VISUAL ARCHIVE v4
+========================= */
+
+
+#imageUpload{
+
+    background:#fff;
+
+    padding:15px;
+
+    border-radius:20px;
+
+}
+
+
+
+#imageTitle{
+
+    margin-top:12px;
+
+}
+
+
+
+#imageTag{
+
+    margin-top:12px;
+
+}
+
+
+
+
+#imageNote{
+
+    margin-top:12px;
+
+}
+
+
+
+
+button{
+
+    cursor:pointer;
+
+}
+
+
+
+#gallery{
+
+
+    margin-top:25px;
+
+
+    display:grid;
+
+
+    grid-template-columns:repeat(2,1fr);
+
+
+    gap:15px;
+
+
+}
+
+
+
+
+.memory-card{
+
+
+    background:white;
+
+
+    border-radius:25px;
+
+
+    overflow:hidden;
+
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.08);
+
+
+    animation:fade .4s ease;
+
+
+}
+
+
+
+.memory-card img{
+
+
+    width:100%;
+
+
+    display:block;
+
+
+    object-fit:cover;
+
+
+}
+
+
+
+
+
+.memory-info{
+
+
+    padding:15px;
+
+
+}
+
+
+
+.memory-title{
+
+
+    font-weight:bold;
+
+
+    font-size:16px;
+
+
+}
+
+
+
+.memory-tag{
+
+
+    display:inline-block;
+
+
+    background:#ffe5ee;
+
+
+    padding:5px 12px;
+
+
+    border-radius:20px;
+
+
+    font-size:13px;
+
+
+    margin-top:8px;
+
+
+}
+
+
+
+.memory-note{
+
+
+    margin-top:10px;
+
+
+    font-size:14px;
+
+
+    color:#666;
+
+
+}
+
+
+
+
+@keyframes fade{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(10px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+@media(max-width:480px){
+
+
+#gallery{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:10px;
+
+}
+
+
+.memory-info{
+
+padding:12px;
+
+}
+
+
+}
