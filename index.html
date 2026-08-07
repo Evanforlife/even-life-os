@@ -232,19 +232,60 @@ AI视频
 <section class="card">
 
 <h2>
-📷 Inspiration Wall
+📷 MY VISUAL ARCHIVE
 </h2>
 
 
-<textarea id="idea"
-placeholder="
-记录灵感：
+<input 
+type="file"
+id="imageUpload"
+accept="image/*">
 
-照片
-音乐
-旅行
-想法
-"></textarea>
+
+<input
+id="imageTitle"
+placeholder="图片标题">
+
+
+<select id="imageTag">
+
+<option>🇯🇵 Japan</option>
+
+<option>🎧 Music</option>
+
+<option>⭐ Fandom</option>
+
+<option>🤖 AI</option>
+
+<option>📷 Aesthetic</option>
+
+<option>✈️ Travel</option>
+
+<option>🌱 Life</option>
+
+</select>
+
+
+<textarea
+id="imageNote"
+placeholder="
+为什么收藏？
+
+你的想法：
+">
+</textarea>
+
+
+<button onclick="saveImage()">
+ADD MEMORY ✨
+</button>
+
+
+<div id="gallery">
+
+</div>
+
+
 
 
 </section>
