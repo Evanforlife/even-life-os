@@ -1,11 +1,11 @@
-// EVEN LIFE OS DATA SYSTEM
+// EVEN LIFE OS v4
+// Image Archive System
 
-
-// 今天日期
 
 const today = new Date()
 .toISOString()
 .split("T")[0];
+
 
 
 document.getElementById("date").innerHTML =
@@ -14,13 +14,15 @@ today;
 
 
 
-// 心情记录
+
+// =================
+// Mood
+// =================
+
 
 function setMood(mood){
 
-document.getElementById("mood")
-.innerHTML = mood;
-
+document.getElementById("mood").innerHTML=mood;
 
 localStorage.setItem(
 "mood",
@@ -32,106 +34,14 @@ mood
 
 
 
-// 页面打开读取数据
-
-window.onload=function(){
 
 
-let mood =
-localStorage.getItem("mood");
-
-
-if(mood){
-
-document.getElementById("mood")
-.innerHTML=mood;
-
-}
-
-
-
-
-let old =
-localStorage.getItem(today);
-
-
-if(old){
-
-let data =
-JSON.parse(old);
-
-
-
-document.getElementById("ice")
-.checked=data.ice;
-
-
-document.getElementById("posture")
-.checked=data.posture;
-
-
-document.getElementById("stretch")
-.checked=data.stretch;
-
-
-document.getElementById("walk")
-.checked=data.walk;
-
-
-
-document.getElementById("sleep")
-.value=data.sleep;
-
-
-document.getElementById("wake")
-.value=data.wake;
-
-
-document.getElementById("quality")
-.value=data.quality;
-
-
-
-document.getElementById("koreanTime")
-.value=data.koreanTime;
-
-
-document.getElementById("koreanNote")
-.value=data.koreanNote;
-
-
-document.getElementById("aiNote")
-.value=data.aiNote;
-
-
-document.getElementById("idea")
-.value=data.idea;
-
-
-document.getElementById("note")
-.value=data.note;
-
-
-
-}
-
-
-
-showRecords();
-
-
-}
-
-
-
-
-
-
-// 保存今天
+// =================
+// Save Today
+// =================
 
 
 function saveData(){
-
 
 
 let data={
@@ -141,81 +51,56 @@ date:today,
 
 
 mood:
-document.getElementById("mood")
-.innerHTML,
-
+document.getElementById("mood").innerHTML,
 
 
 ice:
-document.getElementById("ice")
-.checked,
+document.getElementById("ice").checked,
 
 
 posture:
-document.getElementById("posture")
-.checked,
+document.getElementById("posture").checked,
 
 
 stretch:
-document.getElementById("stretch")
-.checked,
+document.getElementById("stretch").checked,
 
 
 walk:
-document.getElementById("walk")
-.checked,
-
+document.getElementById("walk").checked,
 
 
 sleep:
-document.getElementById("sleep")
-.value,
+document.getElementById("sleep").value,
 
 
 wake:
-document.getElementById("wake")
-.value,
+document.getElementById("wake").value,
 
 
 quality:
-document.getElementById("quality")
-.value,
-
+document.getElementById("quality").value,
 
 
 koreanTime:
-document.getElementById("koreanTime")
-.value,
+document.getElementById("koreanTime").value,
 
 
 koreanNote:
-document.getElementById("koreanNote")
-.value,
-
+document.getElementById("koreanNote").value,
 
 
 aiNote:
-document.getElementById("aiNote")
-.value,
-
-
-
-idea:
-document.getElementById("idea")
-.value,
-
+document.getElementById("aiNote").value,
 
 
 note:
-document.getElementById("note")
-.value
+document.getElementById("note").value
 
 
 };
 
 
-
-// 保存到手机浏览器
 
 localStorage.setItem(
 
@@ -232,8 +117,120 @@ alert(
 );
 
 
+}
 
-showRecords();
+
+
+
+
+
+
+
+// =================
+// Image Archive
+// =================
+
+
+
+function saveImage(){
+
+
+
+let file =
+
+document
+.getElementById("imageUpload")
+.files[0];
+
+
+
+if(!file){
+
+alert(
+"请先选择图片"
+);
+
+return;
+
+}
+
+
+
+let reader = new FileReader();
+
+
+
+reader.onload=function(e){
+
+
+
+let image={
+
+
+src:e.target.result,
+
+
+title:
+document.getElementById("imageTitle").value || "Untitled",
+
+
+tag:
+document.getElementById("imageTag").value,
+
+
+note:
+document.getElementById("imageNote").value,
+
+
+date:today
+
+
+};
+
+
+
+let images =
+
+JSON.parse(
+
+localStorage.getItem("images")
+
+|| "[]"
+
+);
+
+
+
+images.push(image);
+
+
+
+localStorage.setItem(
+
+"images",
+
+JSON.stringify(images)
+
+);
+
+
+
+alert(
+"📷 Memory saved!"
+);
+
+
+
+showImages();
+
+
+
+};
+
+
+
+reader.readAsDataURL(file);
+
 
 
 }
@@ -244,14 +241,38 @@ showRecords();
 
 
 
-// 显示历史记录
+
+// =================
+// Display Images
+// =================
 
 
-function showRecords(){
+function showImages(){
 
 
-let box =
-document.getElementById("records");
+let gallery =
+
+document.getElementById("gallery");
+
+
+
+if(!gallery){
+
+return;
+
+}
+
+
+
+let images =
+
+JSON.parse(
+
+localStorage.getItem("images")
+
+|| "[]"
+
+);
 
 
 
@@ -259,80 +280,102 @@ let html="";
 
 
 
-for(let i=0;i<localStorage.length;i++){
-
-
-let key =
-localStorage.key(i);
-
-
-
-if(key.match(/\d{4}-\d{2}-\d{2}/)){
-
-
-
-let data =
-JSON.parse(
-localStorage.getItem(key)
-);
+images.reverse()
+.forEach(function(item){
 
 
 
 html += `
 
-<div class="record-item">
 
-<b>
-${data.date}
-</b>
-
-<br>
-
-心情：
-${data.mood || "-"}
+<div class="memory-card">
 
 
-<br>
-
-🧊 不喝冰：
-${data.ice?"✅":"❌"}
+<img src="${item.src}">
 
 
-<br>
 
-🪑 不翘腿：
-${data.posture?"✅":"❌"}
+<div class="memory-info">
 
 
-<br>
+<div class="memory-title">
 
-🇰🇷 韩语：
-${data.koreanTime || 0}分钟
+${item.title}
+
+</div>
 
 
-<br>
+<div class="memory-tag">
 
-🤖 AI：
-${data.aiNote || "-"}
+${item.tag}
+
+</div>
+
+
+<div class="memory-note">
+
+${item.note || ""}
+
+</div>
+
+
+<small>
+
+${item.date}
+
+</small>
 
 
 </div>
+
+
+</div>
+
 
 `;
 
 
 
+});
+
+
+
+gallery.innerHTML=html;
+
+
+
+}
+
+
+
+
+
+
+
+
+// =================
+// Load
+// =================
+
+
+window.onload=function(){
+
+
+let mood=
+
+localStorage.getItem("mood");
+
+
+if(mood){
+
+document.getElementById("mood")
+.innerHTML=mood;
+
 }
 
 
-}
 
-
-if(html){
-
-box.innerHTML=html;
-
-}
+showImages();
 
 
 }
